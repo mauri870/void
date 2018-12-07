@@ -1,7 +1,7 @@
-use std::io;
-
 extern crate argparse;
+
 use argparse::{ArgumentParser, StoreTrue};
+use std::io;
 
 fn main(){
     let mut verbose = false;
