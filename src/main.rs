@@ -15,8 +15,11 @@ fn main(){
         ap.parse_args_or_exit();
     }
 
-    let n = io::copy(&mut io::stdin(), &mut io::sink()).unwrap();
-    if verbose {
-        eprintln!("{} bytes send into the void", n)
+    let result = io::copy(&mut io::stdin(), &mut io::sink());
+    match result {
+        Err(e) => println!("Error copying to void: {:?}", e),
+        Ok(n) => if verbose {
+            eprintln!("{} bytes send into the void", n);
+        }
     }
 }
