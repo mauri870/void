@@ -11,15 +11,15 @@ md5sums=("SKIP")
 
 build() {
     cd "${srcdir}/${pkgname}"
-	cargo build --release
+    cargo build --release
 }
 
 check() {
     cd "${srcdir}/${pkgname}"
-	cargo test --release
+    cargo test --release
 }
 
 package() {
     cd "${srcdir}/${pkgname}"
-	install -Dm755 target/release/"$pkgname" "$pkgdir"/usr/bin/"$pkgname"
+    install -Dm755 target/release/"$pkgname" "$pkgdir"/usr/bin/"$pkgname"
 }
